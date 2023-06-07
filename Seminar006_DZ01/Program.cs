@@ -10,7 +10,7 @@
 //     int sum = Convert.ToInt32(Console.ReadLine());
 //     if (sum>0)
 //     {
-//         result = result + 1;
+//         result += 1;
 //         Console.WriteLine($"{result}");
 //     }
 //     else if (sum<=0)
@@ -46,7 +46,7 @@
 //     {
 //     if (numbers[i]>0)
 //     {
-//         result = result + 1;
+//         result += 1;
         
 //     }
 //     else if (numbers[i]<=0)
