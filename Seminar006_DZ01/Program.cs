@@ -22,48 +22,110 @@
 // Kol();  
 
 
-Console.Write("Введите длину массива = ");
-int size = Convert.ToInt32(Console.ReadLine());
-int[] numbers = new int[size];
+// Console.Write("Введите длину массива = ");
+// int size = Convert.ToInt32(Console.ReadLine());
+// int[] numbers = new int[size];
 
-RandonNumbers(numbers);
-Power(numbers);
+// RandonNumbers(numbers);
+// Power(numbers);
+// Console.Write("Массив = ");
+// PrintArray(numbers);
+// void RandonNumbers(int[] numbers)
+// {
+//     for(int i = 0; i < size; i++)
+//     {
+//         Console.Write("Введите число = ");
+//         numbers[i] = Convert.ToInt32(Console.ReadLine());
+//     }
+// }
+// void Power(int[] numbers)
+// {
+//     int result = 0;
+
+//     for (int i = 0; i < numbers.Length; i++)
+//     {
+//     if (numbers[i]>0)
+//     {
+//         result = result + 1;
+        
+//     }
+//     else if (numbers[i]<=0)
+//     {
+        
+//     }
+//     // return Kol();
+//     }
+//     Console.WriteLine($"Количество положительных чисел = {result}");
+// }
+// void PrintArray(int[] numbers)
+// {
+//     Console.Write("[ ");
+//     for(int i = 0; i < numbers.Length; i++)
+//     {
+//         Console.Write(numbers[i] + " ");
+//     }
+//     Console.Write("]");
+//     Console.WriteLine();
+// }
+
+Console.Write("Введите числа через пробел = ");
+int[] numbers = Kol(Console.ReadLine());
 Console.Write("Массив = ");
 PrintArray(numbers);
-void RandonNumbers(int[] numbers)
+Sum();
+void Sum()
 {
-    for(int i = 0; i < size; i++)
+int sum = 0;
+for (int i = 0; i < numbers.Length; i++)
+{
+    if (numbers[i] > 0)
     {
-        Console.Write("Введите число = ");
-        numbers[i] = Convert.ToInt32(Console.ReadLine());
+        sum++;
     }
 }
-void Power(int[] numbers)
+Console.WriteLine();
+Console.WriteLine($"количество положительных чисел = [ {sum} ]");
+}
+int[] Kol(string arr)
 {
-    int result = 0;
+    int size = 1;                                   
+    for (int i = 0; i < arr.Length; i++)            
+    {                                               
+        if (arr[i] == ' ')                          
+        {                                           
+            size++;                                 
+        }                                           
+    }                                               
+    int[] numbers = new int [size];                 
 
-    for (int i = 0; i < numbers.Length; i++)
-    {
-    if (numbers[i]>0)
-    {
-        result = result + 1;
-        
-    }
-    else if (numbers[i]<=0)
-    {
-        
-    }
-    // return Kol();
-    }
-    Console.WriteLine($"Количество положительных чисел = {result}");
+    int index = 0;                                  
+    for (int i = 0; i < arr.Length; i++)            
+    {                                               
+        string temp = "";                           
+        while (arr[i] != ' ')                        
+        {                                           
+            if(i != arr.Length - 1)                  
+            {                                       
+                temp += arr [i].ToString();         
+                i++;                                
+            }                                       
+            else                                    
+            {                                       
+                temp += arr [i].ToString();         
+                break;                              
+            }                                       
+        }                                           
+        numbers[index] = Convert.ToInt32(temp);      
+        index++;                                    
+    }                                               
+    return numbers;                                 
 }
-void PrintArray(int[] numbers)
+void PrintArray(int[] array)
 {
     Console.Write("[ ");
-    for(int i = 0; i < numbers.Length; i++)
+    for (int i = 0; i < array.Length; i++)
     {
-        Console.Write(numbers[i] + " ");
+        Console.Write(array[i] + " ");
     }
     Console.Write("]");
-    Console.WriteLine();
 }
